@@ -1,0 +1,97 @@
+@charset "utf-8";
+@import "./variable"; /*引入颜色配置*/
+
+// 修改头部导航背景颜色
+@mixin bg_color($color1,$color2) {
+  background: linear-gradient($color1, $color2);
+  [data-theme="theme1"] & {
+    background: linear-gradient($background-color-themeS1, $background-color-themeE1);
+  }
+  [data-theme="theme2"] & {
+    background: linear-gradient($background-color-themeS2, $background-color-themeE2);
+  }
+}
+
+// 修改系统背景图片
+@mixin bg_imgPath($imgPath) {
+  background: url($imgPath) no-repeat;
+  position: relative;
+  background-size: 100% 100%;
+  [data-theme="theme1"] & {
+    background: url($main-imgPath1) no-repeat;
+    background-size: 100% 100%;
+  }
+  [data-theme="theme2"] & {
+    background: url($main-imgPath2) no-repeat;
+    background-size: 100% 100%;
+  }
+}
+
+// 修改二级菜单背景图片
+@mixin bg_NavPath($imgPath) {
+  background: url($imgPath) no-repeat;
+  background-size: 100% 100%;
+  [data-theme="theme1"] & {
+    background: url($Nav-imgPath1) no-repeat;
+    background-size: 100% 100%;
+  }
+  [data-theme="theme2"] & {
+    background: url($Nav-imgPath2) no-repeat;
+    background-size: 100% 100%;
+  }
+}
+
+// 修改字体颜色
+@mixin font_color($color) {
+  color: $color;
+  [data-theme="theme1"] & {
+    color: $font-color-theme1;
+  }
+  [data-theme="theme2"] & {
+    color: $font-color-theme2;
+  }
+}
+
+// 修改底部边框颜色
+@mixin border_bottom_color($width,$color) {
+  border-bottom: $width solid $color;
+  [data-theme="theme1"] & {
+    border-bottom: $width solid $botton-back-color1;
+  }
+  [data-theme="theme2"] & {
+    border-bottom: $width solid $botton-back-color2;
+  }
+}
+
+// 修改字体大小
+@mixin font_size($size) {
+  font-size: $size;
+  [data-theme="theme1"] & {
+    font-size: $font_18;
+  }
+  [data-theme="theme2"] & {
+    font-size: $font_19;
+  }
+}
+
+// 修改面包屑背景样式
+@mixin bg_curmbs($color) {
+  background: $color;
+  [data-theme="theme1"] & {
+    background: $curmbs-color1;
+  }
+  [data-theme="theme2"] & {
+    background: $curmbs-color2;
+  }
+}
+
+// 修改主背景边框样式
+@mixin bg_border($color) {
+  border-image: linear-gradient($color, rgba(255, 255, 255, 0.05)) 30 30;
+  [data-theme="theme1"] & {
+    border-image: linear-gradient($curmbs-color1, rgba(255, 255, 255, 0.05)) 30 30;
+  }
+  [data-theme="theme2"] & {
+    border-image: linear-gradient($curmbs-color2, rgba(255, 255, 255, 0.05)) 30 30;
+  }
+}
