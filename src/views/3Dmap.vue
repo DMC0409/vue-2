@@ -6,7 +6,6 @@
 
 <script>
 import chinaJson from "./utils/china.json";
-import shenzhengJson from "./utils/shenzhen.json";
 export default {
   name: "",
   data() {
