@@ -22,8 +22,12 @@ export default {
       this.$echarts.registerMap("mapData", mapJSON);
       this.myChart.showLoading();
       let mapSeries = [];
-      for(let i in mapJSON){
-
+      for (let i in mapJSON.features) {
+        console.log(mapJSON.features[i].properties);
+        mapSeries.push({
+          name:mapJSON.features[i].properties.name,
+          adcode:mapJSON.features[i].properties.adcode,
+        })
       }
       this.$nextTick(() => {
         this.myChart.hideLoading();
@@ -36,13 +40,15 @@ export default {
               label: {
                 show: true,
               },
+              data: mapSeries,
             },
           ],
         });
         this.myChart.off("click");
+        let _this = this;
         this.myChart.on("click", function (e) {
           console.log(e);
-          this.drawMap("china");
+          _this.drawMap(e.data.adcode);
         });
       });
     },
